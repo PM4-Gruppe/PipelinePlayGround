@@ -1,15 +1,15 @@
 name: Build and Test ParkingPatrolWebApp
 on: push
 jobs:
-  build-project:
-    name: Build and Test ParkingPatrolWebApp
-    runs-on: ubuntu-latest
-    steps:
-      -name: Checkout Code
-      use: actions/checkout@v2
-      -name: Install Npm dependencies
-      run: npm install
-      -name: Test application
-      run: npm run test
-      -name: Build application
-      run: npm run build
+build-project:
+  name: Build and Test ParkingPatrolWebApp
+  runs-on: ubuntu-latest
+  steps:
+  - name: Checkout Code
+    uses: actions/checkout@v2
+  - name: Install Npm dependencies
+    run: npm install
+  - name: Test application
+    run: npm run test
+  - name: Build application
+    run: npm run build
