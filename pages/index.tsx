@@ -21,6 +21,10 @@ export default function Home() {
             1. First Build;
             <code className={styles.code}></code>
           </p>
+          <p>
+            2. First Build;
+            <code className={styles.code}></code>
+          </p>
           </div>
           <div>
             <a
