@@ -7,6 +7,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+      - name: install node v18
+        uses: actions/setup-node@v3
+        with: 
+          node-version: '18'
       - name: Install Npm dependencies
         run: npm install
       #- name: Test application
