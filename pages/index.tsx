@@ -28,7 +28,7 @@ export default function Home() {
 		  <p>
 			Dini Mueter;
 			<code className={styles.code}></code>
-		  </p
+		  </p>
           </div>
           <div>
             <a
