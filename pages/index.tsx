@@ -18,11 +18,11 @@ export default function Home() {
         <div className={styles.description}>
           <div>
           <p>
-            1. First Build;
+            1. Build;
             <code className={styles.code}></code>
           </p>
           <p>
-            2. First Build;
+            2. Build;
             <code className={styles.code}></code>
           </p>
           </div>
