@@ -25,6 +25,10 @@ export default function Home() {
             2. Build;
             <code className={styles.code}></code>
           </p>
+		  <p>
+			Dini Mueter;
+			<code className={styles.code}></code>
+		  </p
           </div>
           <div>
             <a
