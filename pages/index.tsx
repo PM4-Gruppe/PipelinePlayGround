@@ -26,7 +26,7 @@ export default function Home() {
             <code className={styles.code}></code>
           </p>
 		  <p>
-			Dini Mueter;
+			Weltherschaft;
 			<code className={styles.code}></code>
 		  </p>
           </div>
