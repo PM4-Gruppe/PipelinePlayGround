@@ -1,5 +1,5 @@
 #--- Select target os ---
-FROM node:16-alpine
+FROM node:18-alpine
 
 #--- Setup Work directory ---
 WORKDIR /app
