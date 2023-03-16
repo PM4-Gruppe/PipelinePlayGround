@@ -1,6 +1,6 @@
 name: Build and Test ParkingPatrolWebApp
-#on: workflow_dispatch
-on: push
+on: workflow_dispatch
+#on: push
 jobs:
   build-project:
     name: Build and Test ParkingPatrolWebApp
