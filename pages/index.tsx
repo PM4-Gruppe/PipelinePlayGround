@@ -26,7 +26,7 @@ export default function Home() {
             <code className={styles.code}></code>
           </p>
 		  <p>
-			Rancher ist sehr geil;
+			Rancher ist sehr sehr geil, damol klapps;
 			<code className={styles.code}></code>
 		  </p>
           </div>
