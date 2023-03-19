@@ -26,7 +26,7 @@ export default function Home() {
             <code className={styles.code}></code>
           </p>
 		  <p>
-			Rancher ist sehr sehr geil, damol klapps JAAA jetzt auch mit deployment JUHUU;
+			Rancher ist sehr sehr geil, damol klapps JAAA jetzt auch mit deployment JUHUU aber jetzt richtig!!;
 			<code className={styles.code}></code>
 		  </p>
           </div>

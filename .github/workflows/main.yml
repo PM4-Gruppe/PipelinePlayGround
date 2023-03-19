@@ -35,4 +35,4 @@ jobs:
           config: ${{ secrets.KUBERNETES_CONFIG }}
           version: v1.21.0 # specify kubectl binary version explicitly
           binaries-url: "https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl" # specify the download url explicitly
-          command: -n nightparkingpatrol-prod rollout status deployment/test-next-deployment
+          command: -n nightparkingpatrol-prod rollout restart deployment/test-next-deployment
