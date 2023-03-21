@@ -2,8 +2,8 @@ name: Build and Test ParkingPatrolWebApp
 #on: workflow_dispatch
 on: push
 jobs:
-  setup:
-    name: Setup
+  build-project:
+    name: Build and Test ParkingPatrolWebApp
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -23,22 +23,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-  docker:
-    name: Build and pull Docker
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
       - name: Build and push to Docker Hub
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
           tags: pm4parkingpatrol/test:latest, pm4parkingpatrol/test:${{ github.run_number }}
-  kubernetes:
-    name: Redeploy on Kubernetes
-    needs: docker
-    runs-on: ubuntu-latest
-    steps:
       - name: redeploy
         uses: steebchen/kubectl@v2.0.0
         with:
