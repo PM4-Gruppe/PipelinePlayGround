@@ -5,6 +5,8 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+console.log(".env/Text = "+ process.env.TEXT)
+
 export default function Home() {
   return (
     <>
@@ -25,10 +27,10 @@ export default function Home() {
             2. Build;
             <code className={styles.code}></code>
           </p>
-		  <p>
-			Rancher ist sehr sehr geil, damol klapps JAAA jetzt auch mit deployment JUHUU aber jetzt richtig!!;
-			<code className={styles.code}></code>
-		  </p>
+          <p>
+            3. {process.env.NEXT_PUBLIC_TEXT};
+            <code className={styles.code}></code>
+          </p>
           </div>
           <div>
             <a
