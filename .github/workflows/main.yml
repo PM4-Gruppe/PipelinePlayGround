@@ -2,7 +2,7 @@ name: Build and Test ParkingPatrolWebApp
 #on: workflow_dispatch
 on: push
 jobs:
-  checkout_repo:
+  setup:
     name: Build and Test ParkingPatrolWebApp
     runs-on: ubuntu-latest
     steps:
@@ -12,13 +12,12 @@ jobs:
         uses: actions/setup-node@v3
         with: 
           node-version: '18'
-  install_npm_dependencies:
-    needs: checkout_repo
+  npm_dependencies:
+    needs: setup
     - name: Install Npm dependencies
         run: npm install
-      #- name: Test application
-      #  run: npm run test
   build_application:
+    needs: [npm_dependencies]
     - name: Build application
         run: npm run build
   login_to_docker_hub:
