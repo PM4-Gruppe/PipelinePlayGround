@@ -12,8 +12,8 @@ jobs:
         uses: actions/setup-node@v3
         with: 
           node-version: '18'
-  npmdependencies:
-    needs: setup
+  npm_dependencies:
+      needs: setup
     - name: Install Npm dependencies
         run: npm install
   build_application:
