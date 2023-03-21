@@ -2,7 +2,7 @@ name: Build and Test ParkingPatrolWebApp
 #on: workflow_dispatch
 on: push
 jobs:
-  setup:
+  build-project:
     name: Build and Test ParkingPatrolWebApp
     runs-on: ubuntu-latest
     steps:
@@ -12,38 +12,27 @@ jobs:
         uses: actions/setup-node@v3
         with: 
           node-version: '18'
-  job2:
-    runs-on: ubuntu-latest
-    needs: setup
-    name: Install Npm dependencies
-      run: npm install
-  buildapplication:
-    runs-on: ubuntu-latest
-    needs: job2
-    name: Build application
-      run: npm run build
-  logintodockerhub:
-    runs-on: ubuntu-latest
-    needs: buildapplication
-    name: Login to Docker Hub
-    uses: docker/login-action@v2
-    with:
-      username: ${{ secrets.DOCKERHUB_USERNAME }}
-      password: ${{ secrets.DOCKERHUB_TOKEN }}
-  upload_to_docker_hub:
-    needs: logintodockerhub
-    name: Build and push to Docker Hub
-    uses: docker/build-push-action@v2
-    with:
-      context: .
-      push: true
-      tags: pm4parkingpatrol/test:latest, pm4parkingpatrol/test:${{ github.run_number }}
-  inform_rancher:
-    needs: upload_to_docker_hub
-    name: Inform Rancher
-      uses: steebchen/kubectl@v2.0.0
-      with:
-        config: ${{ secrets.KUBERNETES_CONFIG }}
-        version: v1.21.0 # specify kubectl binary version explicitly
-        binaries-url: "https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl" # specify the download url explicitly
-        command: -n nightparkingpatrol-prod rollout restart deployment/test-next-deployment
+      - name: Install Npm dependencies
+        run: npm install
+      #- name: Test application
+      #  run: npm run test
+      - name: Build application
+        run: npm run build
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push to Docjer Hub
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: pm4parkingpatrol/test:latest, pm4parkingpatrol/test:${{ github.run_number }}
+      - name: redeploy
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          config: ${{ secrets.KUBERNETES_CONFIG }}
+          version: v1.21.0 # specify kubectl binary version explicitly
+          binaries-url: "https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl" # specify the download url explicitly
+          command: -n nightparkingpatrol-prod rollout restart deployment/test-next-deployment
