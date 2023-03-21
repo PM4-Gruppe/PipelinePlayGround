@@ -2,7 +2,7 @@ name: Build and Test ParkingPatrolWebApp
 #on: workflow_dispatch
 on: push
 jobs:
-  Checkout Repo:
+  checkout_repo:
     name: Build and Test ParkingPatrolWebApp
     runs-on: ubuntu-latest
     steps:
@@ -12,30 +12,28 @@ jobs:
         uses: actions/setup-node@v3
         with: 
           node-version: '18'
-  Install Npm dependencies:
-      needs: Checkout Repo
+  install_npm_dependencies:
     - name: Install Npm dependencies
         run: npm install
       #- name: Test application
       #  run: npm run test
-  Build application:
-      needs: [Checkout Repo, Install Npm dependencies]
+  build_application:
     - name: Build application
         run: npm run build
-  Login to Docker Hub:
+  login_to_docker_hub:
     - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-  Upload to Docker Hub:
+  upload_to_docker_hub:
      - name: Build and push to Docker Hub
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
           tags: pm4parkingpatrol/test:latest, pm4parkingpatrol/test:${{ github.run_number }}
-  Inform Rancher:
+  inform_rancher:
     - name: Inform Rancher
         uses: steebchen/kubectl@v2.0.0
         with:
