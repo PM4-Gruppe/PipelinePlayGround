@@ -3,7 +3,7 @@ name: Build and Test ParkingPatrolWebApp
 on: push
 jobs:
   setup:
-    name: Build and Test ParkingPatrolWebApp
+    name: Setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -12,8 +12,8 @@ jobs:
         uses: actions/setup-node@v3
         with: 
           node-version: '18'
-  install_dependencies:
-    name: Install Npm dependencies
+  npm_dependencies:
+    name: Npm Dependencies
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -21,6 +21,11 @@ jobs:
         run: npm install
       #- name: Test application
       #  run: npm run test
+  build:
+    name: Buid
+    needs: npm_dependencies
+    runs-on: ubuntu-latest
+    steps:
       - name: Build application
         run: npm run build
       - name: Login to Docker Hub
