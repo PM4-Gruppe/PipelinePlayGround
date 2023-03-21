@@ -21,9 +21,8 @@ jobs:
       - name: Create .env file
         run: |
           cp .env.template .env
-          echo "VAR1=${{ secrets.VAR1 }}" >> .env
-          echo "VAR2=${{ secrets.VAR2 }}" >> .env
-          echo "VAR3=${{ secrets.VAR3 }}" >> .env
+          echo "VAR1=DiniMueter >> .env
+          echo "VAR2=DiniVater >> .env
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
