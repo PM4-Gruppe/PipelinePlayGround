@@ -14,6 +14,7 @@ jobs:
           node-version: '18'
   install_dependencies:
     needs: setup
+    name: Install Npm dependencies
     steps:
       - name: Install Npm dependencies
         run: npm install
