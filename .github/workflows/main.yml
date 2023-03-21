@@ -2,7 +2,7 @@ name: Build and Test ParkingPatrolWebApp
 #on: workflow_dispatch
 on: push
 jobs:
-  build-project:
+  setup:
     name: Build and Test ParkingPatrolWebApp
     runs-on: ubuntu-latest
     steps:
@@ -12,6 +12,9 @@ jobs:
         uses: actions/setup-node@v3
         with: 
           node-version: '18'
+  install_dependencies:
+    needs: setup
+    steps:
       - name: Install Npm dependencies
         run: npm install
       #- name: Test application
