@@ -13,8 +13,9 @@ jobs:
         with: 
           node-version: '18'
   install_dependencies:
-    needs: setup
     name: Install Npm dependencies
+    needs: setup
+    runs-on: ubuntu-latest
     steps:
       - name: Install Npm dependencies
         run: npm install
