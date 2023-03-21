@@ -13,6 +13,7 @@ RUN npm install
 #--- For Production ---
 COPY .next ./.next
 COPY public ./public
+COPY .env ./.env
 
 ARG VAR1
 ARG VAR2
