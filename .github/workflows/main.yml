@@ -13,6 +13,7 @@ jobs:
         with: 
           node-version: '18'
   install_npm_dependencies:
+    needs: checkout_repo
     - name: Install Npm dependencies
         run: npm install
       #- name: Test application
