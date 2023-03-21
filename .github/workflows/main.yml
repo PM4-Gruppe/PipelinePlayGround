@@ -34,9 +34,6 @@ jobs:
           context: .
           push: true
           tags: pm4parkingpatrol/test:latest, pm4parkingpatrol/test:${{ github.run_number }}
-          uild-args: |
-            VAR1=hallo
-            VAR2=du
       - name: redeploy
         uses: steebchen/kubectl@v2.0.0
         with:

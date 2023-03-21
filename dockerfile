@@ -15,16 +15,6 @@ COPY .next ./.next
 COPY public ./public
 COPY .env .
 
-#ARG VAR1
-#ARG VAR2
-#
-#ENV VAR1=$VAR1 \
-#    VAR2=$VAR2
-#
-#RUN touch /app/.env && printenv > /app/.env
-
-
-
 #--- For Development ---
 #COPY next.config.js ./next.condig.js
 
