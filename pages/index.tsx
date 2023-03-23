@@ -28,7 +28,7 @@ export default function Home() {
             <code className={styles.code}></code>
           </p>
           <p>
-            3. {process.env.NEXT_PUBLIC_TEXT};
+            3. Demo Test;
             <code className={styles.code}></code>
           </p>
           </div>
