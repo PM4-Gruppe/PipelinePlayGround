@@ -28,7 +28,7 @@ export default function Home() {
             <code className={styles.code}></code>
           </p>
           <p>
-            3. Demo Test;
+            3. Demo vor Dozent;
             <code className={styles.code}></code>
           </p>
           </div>
